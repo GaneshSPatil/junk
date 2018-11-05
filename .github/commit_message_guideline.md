@@ -38,5 +38,5 @@ Further paragraphs come after blank lines.
   - Do not add `WIP`, `DNM` or junk commits. Those should either be removed or squashed before PR merge.
   - Do not incorporate multiple logical changes or bug fixes into one. Such commits are harder to review and difficult to summarize as well. It is better to split up such commit into several commits using `git add -p`
 
-**NOTE:** The logical structuring of commit message(s) varies depending on the proposed feature or bug fix. Sometimes, its upto the PR owner and reviewer to make necessary changes to commit(s) as per the requirement.
+**NOTE:** Structuring of commit message(s) varies depending on the proposed change, feature or bug fix. Sometimes, its upto the PR owner and reviewer to make necessary changes to commit(s) as per the requirement.
 
