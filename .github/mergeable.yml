@@ -2,21 +2,31 @@ version: 2
 mergeable:
   - when: pull_request.*, pull_request_review.*
     validate:
-      - do: title
-        # Enforce semantic release convention.
+      - do: milestone
+        no_empty:
+          enabled: true
+          message: "Milestone must be specified"
         must_include:
-          regex: ^(feat|docs|chore|fix|refactor|test|style|perf)(\(\w+\))?:.+$
-          message: Semantic release conventions must be followed.
-        # All todo check boxes must be checked.
-      - do: description
-        must_exclude:
-          regex: \[ \]
-          message: There are incomplete TODO task(s) unchecked.
-      - do: approvals
-        min:
-          count: 1
-        or:
-          - required:
-              reviewers: [ jusx ]
-          - required:
-              reviewers: [ shine2lay ]
+          # one or more chars
+          regex: '.+'
+          message: "Milestone must be specified"
+      - do: project
+        no_empty:
+          enabled: true
+          message: "Project must be specified"
+        must_include:
+          # one or more chars
+          regex: '.+'
+          message: "Project must be specified"
+    pass:
+      - do: checks
+        status: success
+        payload:
+          title: "Result: success"
+          summary: "Okay to merge"
+    fail:
+      - do: checks
+        status: failure
+        payload:
+          title: The PR is not ready to be merged.
+          summary: The pull request is not ready to be merged.
