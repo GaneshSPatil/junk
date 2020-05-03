@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>  
 <testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:v="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
 	<testsuite name="TdgRunner">
 		<testcase classname="TdgRunner" name="CallStep"/>
