@@ -6,10 +6,37 @@
 trigger:
 - master
 
-jobs:
-- job: myJob
-  timeoutInMinutes: 10
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - bash: echo "Hello world"
+
+stages:
+- stage: A
+  jobs:
+  - job: A1
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - bash: echo "Hello world"
+  - job: A2
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - bash: echo "Hello world"
+
+- stage: B
+  jobs:
+  - job: B1
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - bash: echo "Hello world"
+  - job: B2
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - bash: echo "Hello world"
+
+  
+ 
